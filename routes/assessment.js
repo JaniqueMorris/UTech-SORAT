@@ -175,10 +175,22 @@ router.get('/life-factors', ensureAuthenticated, (req, res, next) => {
 
 
 // reading route
-router.get('/reading', ensureAuthenticated, (req, res, next) => {
-    res.render('assessment/reading', {
-        title: 'Reading'
-    });
+router.get('/readingTest-passage', ensureAuthenticated, (req, res, next) => {
+  res.render('assessment/readingTest-passage', {
+    title: 'Reading Test',
+    passage: "This is about to go Down Anim minim tempor et aute aliqua dolor reprehenderit sint Lorem sunt est proident sit cillum. Do magna voluptate nostrud nisi aliquip magna nisi occaecat amet excepteur eiusmod. Ea ea proident amet officia reprehenderit. Do esse officia mollit non magna Lorem. Consectetur laboris duis exercitation veniam incididunt irure aliquip reprehenderit laborum sit nisi laboris. Do ut in voluptate consequat irure Lorem nisi non excepteur."
+  });
+});
+
+var readingTime;
+// reading route questions
+router.get('/readingTest-questions/:time', ensureAuthenticated, (req, res, next) => {
+  readingTime = req.params.time; //getting the time spent reading in seconds.
+  console.log('Time Read in seconds: ' + (readingTime / 7490));
+
+  res.render('assessment/readingTest-questions', {
+    title: 'Reading Test',
+  });
 });
 
 // technical competency route
