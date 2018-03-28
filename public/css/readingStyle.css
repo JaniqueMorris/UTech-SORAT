@@ -1,0 +1,27 @@
+
+    #readingPassage{
+      border: 1px solid blue;
+      outline-style: solid;
+      outline-color: invert;
+      width:600px;
+      border-radius:7px;
+      font-size:20px;
+      padding:5px;
+      margin-top:40px;
+      margin-left:260px;
+      margin-bottom:10px;
+      border-color:#9ecaed;
+      box-shadow:0 0 10px #9ecaed;
+    }
+
+  #blurPassage{
+      text-shadow: 0 0 10px #000;
+      color: transparent;
+    }
+  #btnStart{
+      margin-left:480px;
+    }
+  #btnStop{
+      margin-left:480px;
+      display: none;
+    }
