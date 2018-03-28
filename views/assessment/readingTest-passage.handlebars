@@ -1,0 +1,21 @@
+<h1>{{title}}</h1>
+  <hr>
+  <p>
+    <h4>Read Instructions Carefully.</h4>
+    In this assessment we will be testing how well you contain what you have read. Click of the "Start Reading Test" button. Have Fun!
+  </p>
+  <div id="btnStart">
+    <button class="btn btn-primary"  onclick="startReading()" >Start Reading </button>
+  </div>
+
+  <div id="blurPassage">
+    <p id="readingPassage">{{passage}}</p>
+  </div>
+  <button class="btn btn-primary" onclick="stopReading()" id="btnStop">Stop Reading </button><br /><br />
+  <div class="progress">
+        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100" aria-valuemin="0"
+            aria-valuemax="100" style="width: 100%">100%</div>
+  </div>
+
+  <br>
+</div>
