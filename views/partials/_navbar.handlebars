@@ -1,0 +1,44 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-primary mb-4">
+    <div class="container">
+        <a href="/" class="navbar-brand">UTech SORAT</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbar">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a href="/" class="nav-link {{#if active_apple}}active{{/if}}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/about" class="nav-link {{#if active_apple}}active{{/if}}">About</a>
+                </li>
+                {{#if user}}
+                    <li class="nav-item">
+                        <a href="/assessment" class="nav-link {{#if active_apple}}active{{/if}}">Assessment</a>
+                    </li>
+                {{/if}}
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                {{#if user}}
+                    <li class="nav-item">
+                        <a href="/users/logout" class="nav-link">Logout</a>
+                    </li>
+                {{else}}
+                    <li class="nav-item">
+                        <a href="/users/login" class="nav-link {{#if active_apple}}active{{/if}}"><i class="fa fa-sign-out"></i> Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/users/register" class="nav-link {{#if active_apple}}active{{/if}}">Register</a>
+                    </li>
+                {{/if}}
+                
+
+                
+            </ul>
+        </div>
+
+    </div>
+
+</nav>

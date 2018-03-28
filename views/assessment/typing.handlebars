@@ -1,0 +1,102 @@
+<h1>
+    {{title}}</h1>
+<hr>
+
+<div class="card mx-auto text-center">
+    <div class="card-body">
+        <h4 class="card-title">UTech-SORAT</h4>
+        <p class="card-text">
+            This sections seeks to address your typing speed under certain conditions. You will be given a paragraph to rewrite.
+        </p>
+        <div id="countdown">
+            Time Remaining:
+            <span id="timer"></span>
+            Words per minute:
+            <span id="wpm"></span>
+        </div>
+        <div>
+            <textarea disabled id="testingParagraph"> A couple, named Steve and Stephany, were sleeping next to each other in their soft, wooly bed, snuggling each
+                other. Then Stephany said, "I love you, Steven." Steve smiles and says, "The name is Steve, silly." They
+                giggle as they fall into a deep, dreamy sleep.
+            </textarea>
+        </div>
+        <div style="hidden">
+            <input type="text" id="userInput" placeholder="Type here..." onkeypress="textComparison()" />
+        </div>
+        <div>
+            <button id="startBtn" class="btn btn-success" onclick="startTimer()">Click to Start</button>
+        </div>
+        <div>
+            <div><p>Oh crap!</p></div>
+            <span>
+                <button id="clearBtn" class="btn btn-info">Clear</button>
+            </span>
+            <span>
+                <button id="nextBtn" class="btn btn-primary">Save and Continue</button>
+            </span>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.getElementById("timer").innerHTML = "05" + ":" + "00";
+    document.getElementById("wpm").innerHTML = "0";
+    //document.getElementById("startBtn");
+
+    function startTimer() {
+
+        document.getElementById("startBtn").style.visibility = 'hidden';
+        document.getElementById("userInput").style.visibility = 'visible';
+        document.getElementById("nextBtn").style.visibility = 'visible';
+        document.getElementById("clearBtn").style.visibility = 'visible';
+
+
+        var presentTime = document.getElementById("timer").innerHTML;
+        var timeArray = presentTime.split(/[:]+/);
+        var m = timeArray[0];
+        var s = checkSecond((timeArray[1] - 1));
+        if (s == 59) { m = m - 1 }
+
+        if (m < 0) {
+            alert('Time is up!');
+            return;
+        }
+
+        document.getElementById("timer").innerHTML =
+            m + ":" + s;
+        setTimeout(startTimer, 1000);
+    }
+
+    function checkSecond(sec) {
+        if (sec < 10 && sec >= 0) { sec = "0" + sec }; // add zero in front of numbers < 10
+        if (sec < 0) { sec = "59" };
+        return sec;
+    }
+
+    function textComparison() {
+        var index = 0;
+        var wordcount = 0;
+        var length = document.getElementById("testingParagraph").length;
+        var characters = document.getElementById("testingParagraph").val();
+        var userInputVal = document.getElementById("userInput").val();
+        var userText = characters.substring(index, index + length);
+
+        if (userInputVal == characters.charAt(index)) {
+            if (userInputVal == " ") {
+                wordcount++;
+                document.getElementById("#wpm").text(wordcount);
+            }
+            index++;
+            userText = characters.substring(index, index + character_length);
+
+            if (index == characters.length) {
+                wordcount++;
+                document.getElementById("#wpm").text(wordcount);
+            }
+
+        }else{
+            
+        }
+    }
+
+</script>
